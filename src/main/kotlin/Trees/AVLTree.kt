@@ -1,10 +1,10 @@
 package Trees
 
-import BinaryTree
+import BinarySearchTree
 import TreeNodes.AVLNode
 import java.lang.Exception
 
-class AVLTree<T: Comparable<T>, V>: BinaryTree<T, AVLNode<T, V>>() {
+class AVLTree<T: Comparable<T>, V>: BinarySearchTree<T,V,AVLNode<T, V>>() {
     override var root: AVLNode<T, V>? = null
 
 
@@ -29,31 +29,4 @@ class AVLTree<T: Comparable<T>, V>: BinaryTree<T, AVLNode<T, V>>() {
         }
     */
 
-    override fun search(key: T): AVLNode<T, V>?  {
-
-        if (this.root == null) {
-            return null
-        }
-
-        var curr: AVLNode<T, V>? = root
-
-        while(curr != null) {
-
-            if (curr.key == key) return curr
-            if (curr.key > key) {
-                curr = curr.left
-            } else {
-                curr = curr.right
-            }
-        }
-
-        throw NoSuchElementException("Element not found")
-    }
-
-
-    /*
-        override fun search(key: T) {
-            TODO("Write realization of search by node")
-        }
-    */
 }

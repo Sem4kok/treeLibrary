@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5cd5220-665a-4ff2-8d5e-8260a326d8c1" name="Changes" comment="architecture v1.0">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="d5cd5220-665a-4ff2-8d5e-8260a326d8c1" name="Changes" comment="architecture v2.0&#10;key added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/TreeNodes/AVLNode.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/TreeNodes/AVLNode.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/TreeNodes/BSTNode.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/TreeNodes/BSTNode.kt" afterDir="false" />
@@ -72,6 +71,15 @@
       <option name="presentableId" value="Default" />
       <updated>1709817246410</updated>
     </task>
+    <task id="LOCAL-00001" summary="architecture v2.0&#10;key added">
+      <option name="closed" value="true" />
+      <created>1709834249476</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1709834249476</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -84,5 +92,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="architecture v2.0&#10;key added" />
+    <option name="LAST_COMMIT_MESSAGE" value="architecture v2.0&#10;key added" />
   </component>
 </project>

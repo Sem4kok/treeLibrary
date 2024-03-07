@@ -1,10 +1,13 @@
 package TreeNodes
 
-import BinaryTreeNode
+import Node
 
 class AVLNode<T: Comparable<T>, V>(
-    key: T,
-    data: V
-): BinaryTreeNode<T, V,AVLNode<T, V>>(key,data), Heights {
+    override var key: T,
+    override var data: V
+): Heights, Node<T,V,AVLNode<T,V>> {
     override var height: Int = 0
+    override var left: AVLNode<T, V>? = null
+    override var right: AVLNode<T, V>? = null
+
 }

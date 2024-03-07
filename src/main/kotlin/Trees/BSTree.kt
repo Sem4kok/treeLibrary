@@ -1,9 +1,9 @@
 package Trees
 
-import BinaryTree
+import BinarySearchTree
 import TreeNodes.BSTNode
 
-class BSTree<T: Comparable<T>, V>: BinaryTree<T,BSTNode<T, V>>() {
+class BSTree<T: Comparable<T>, V>: BinarySearchTree<T,V,BSTNode<T, V>>() {
     override var root: BSTNode<T, V>? = null
 
     override fun insert(key: T) {
@@ -16,7 +16,6 @@ class BSTree<T: Comparable<T>, V>: BinaryTree<T,BSTNode<T, V>>() {
     }
 */
 
-
     override fun remove(key: T) {
         TODO("Write realization of remove")
     }
@@ -24,16 +23,6 @@ class BSTree<T: Comparable<T>, V>: BinaryTree<T,BSTNode<T, V>>() {
 
 /*    override fun remove(key: T) {
         TODO("Write realization of remove by node")
-    }
-*/
-
-    override fun search(key: T): BSTNode<T, V> {
-        TODO("Write realization of search by node")
-    }
-
-/*
-    override fun search(node: T): BSTNode<T> {
-        TODO("Write realization of search by node")
     }
 */
 
