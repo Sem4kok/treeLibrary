@@ -30,7 +30,7 @@ class RBTree<T: Comparable<T>>: BinaryTree<T, RBNode<T>>() {
         }
     */
 
-    override fun search(value: T) {
+    override fun search(value: T): RBNode<T>?{
         TODO("Write realization of search by node")
     }
 
