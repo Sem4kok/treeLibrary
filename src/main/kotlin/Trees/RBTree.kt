@@ -6,10 +6,10 @@ import TreeNodes.RBNode
 
 val BLACK = false
 val RED = true
-class RBTree<T: Comparable<T>>: BinaryTree<T, RBNode<T>>() {
-    override var root: RBNode<T>? = null
+class RBTree<T: Comparable<T>, V>: BinaryTree<T, RBNode<T, V>>() {
+    override var root: RBNode<T, V>? = null
 
-    override fun insert(value: T) {
+    override fun insert(key: T) {
         TODO("Write realization of insert")
     }
 
@@ -20,7 +20,7 @@ class RBTree<T: Comparable<T>>: BinaryTree<T, RBNode<T>>() {
     */
 
 
-    override fun remove(value: T) {
+    override fun remove(key: T) {
         TODO("Write realization of remove")
     }
 
@@ -30,12 +30,12 @@ class RBTree<T: Comparable<T>>: BinaryTree<T, RBNode<T>>() {
         }
     */
 
-    override fun search(value: T): RBNode<T>?{
+    override fun search(key: T): RBNode<T, V>?{
         TODO("Write realization of search by node")
     }
 
     /*
-        override fun search(value: T) {
+        override fun search(key: T) {
             TODO("Write realization of search by node")
         }
     */
