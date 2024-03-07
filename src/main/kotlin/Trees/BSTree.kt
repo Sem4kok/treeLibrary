@@ -3,10 +3,10 @@ package Trees
 import BinaryTree
 import TreeNodes.BSTNode
 
-class BSTree<T: Comparable<T>>: BinaryTree<T,BSTNode<T>>() {
-    override var root: BSTNode<T>? = null
+class BSTree<T: Comparable<T>, V>: BinaryTree<T,BSTNode<T, V>>() {
+    override var root: BSTNode<T, V>? = null
 
-    override fun insert(value: T) {
+    override fun insert(key: T) {
         TODO("Write realization of insert")
     }
 
@@ -17,17 +17,17 @@ class BSTree<T: Comparable<T>>: BinaryTree<T,BSTNode<T>>() {
 */
 
 
-    override fun remove(value: T) {
+    override fun remove(key: T) {
         TODO("Write realization of remove")
     }
 
 
-/*    override fun remove(value: T) {
+/*    override fun remove(key: T) {
         TODO("Write realization of remove by node")
     }
 */
 
-    override fun search(value: T): BSTNode<T> {
+    override fun search(key: T): BSTNode<T, V> {
         TODO("Write realization of search by node")
     }
 
