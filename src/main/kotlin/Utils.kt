@@ -7,7 +7,7 @@ abstract class BinaryTree<T: Comparable<T>, U> {
     abstract fun remove(value: T)
     //abstract fun remove(node: U)
 
-    abstract fun search(value: T)
+    abstract fun search(value: T) : U?
     //abstract fun search(node: U)
 
 
@@ -17,9 +17,9 @@ abstract class BinaryTree<T: Comparable<T>, U> {
 }
 
 
-abstract class BinaryTreeNode<T: Comparable<T>, U> (
+open class BinaryTreeNode<T: Comparable<T>, U> (
     var data: T
 ) {
-    abstract var left: U?
-    abstract var right: U?
+    var left: U? = null
+    var right: U? = null
 }

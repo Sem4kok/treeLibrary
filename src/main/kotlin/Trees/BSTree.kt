@@ -27,12 +27,12 @@ class BSTree<T: Comparable<T>>: BinaryTree<T,BSTNode<T>>() {
     }
 */
 
-    override fun search(value: T) {
+    override fun search(value: T): BSTNode<T> {
         TODO("Write realization of search by node")
     }
 
 /*
-    override fun search(value: T) {
+    override fun search(node: T): BSTNode<T> {
         TODO("Write realization of search by node")
     }
 */
