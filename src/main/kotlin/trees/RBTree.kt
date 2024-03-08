@@ -5,18 +5,18 @@ import treeNodes.RBTreeNode
 
 
 
-class RBTree<T: Comparable<T>, V>: BinaryTree<T, V, RBTreeNode<T, V>>() {
+class RBTree<K: Comparable<K>, V>: BinaryTree<K, V, RBTreeNode<K, V>>() {
     val RED: Boolean = false
     val BLACK: Boolean = true
 
-    override var root: RBTreeNode<T, V>? = null
+    override var root: RBTreeNode<K, V>? = null
 
-    override fun insert(key: T) {
+    override fun insert(key: K, data: V) {
         TODO("Write realization of insert")
     }
 
 
-    override fun remove(key: T) {
+    override fun remove(key: K) {
         TODO("Write realization of remove")
     }
 

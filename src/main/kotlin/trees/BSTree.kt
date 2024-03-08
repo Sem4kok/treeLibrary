@@ -4,14 +4,14 @@ import BinaryTree
 import treeNodes.AVLTreeNode
 import treeNodes.BSTreeNode
 
-class BSTree<T: Comparable<T>, V>: BinaryTree<T, V, BSTreeNode<T, V>>() {
-    override var root: BSTreeNode<T, V>? = null
+class BSTree<K: Comparable<K>, V>: BinaryTree<K, V, BSTreeNode<K, V>>() {
+    override var root: BSTreeNode<K, V>? = null
 
-    override fun insert(key: T) {
+    override fun insert(key: K, data: V) {
         TODO("Write realization of insert")
     }
 
-    override fun remove(key: T) {
+    override fun remove(key: K) {
         TODO("Write realization of remove")
     }
 

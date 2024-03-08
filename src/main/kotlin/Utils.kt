@@ -1,13 +1,13 @@
 
 
-abstract class BinaryTree<T : Comparable<T>, V, U : BinaryTreeNode<T, V, U>> {
+abstract class BinaryTree<K : Comparable<K>, V, U : BinaryTreeNode<K, V, U>> {
     abstract var root: U?
 
-    abstract fun insert(key: T)
+    abstract fun insert(key: K, data: V)
 
-    abstract fun remove(key: T)
+    abstract fun remove(key: K)
 
-    open fun search(key: T): V? {
+    open fun search(key: K): V? {
         if (this.root == null) {
             return null
         }
@@ -23,13 +23,13 @@ abstract class BinaryTree<T : Comparable<T>, V, U : BinaryTreeNode<T, V, U>> {
             }
         }
 
-        throw NoSuchElementException("Element not found")
+        return null
     }
 }
 
 
-abstract class BinaryTreeNode<T: Comparable<T>, V, U> (
-    var key: T,
+abstract class BinaryTreeNode<K: Comparable<K>, V, U> (
+    var key: K,
     var data: V
 ) {
     open var left: U? = null
