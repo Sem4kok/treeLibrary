@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-
-=======
-    <list default="true" id="d5cd5220-665a-4ff2-8d5e-8260a326d8c1" name="Changes" comment="architecture v2.1&#10;&#10;key generic name modified from &quot;T&quot; to &quot;K&quot;, &#10;+Insert method take one more argument - data: V">
->>>>>>> bcd4223c4efb599d38bae6624dfa9701f82cd386
+    <list default="true" id="d5cd5220-665a-4ff2-8d5e-8260a326d8c1" name="Changes" comment="save">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Utils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Utils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/treeNodes/AVLTreeNode.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/treeNodes/AVLTreeNode.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/trees/AVLTree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/trees/AVLTree.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/trees/BSTree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/trees/BSTree.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,12 +36,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "suvorovrain"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;suvorovrain&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -67,6 +64,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.Build treeLibrary.executor": "Run",
+    "Kotlin.AVLTreeKt.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
@@ -104,7 +103,6 @@
       <workItem from="1709879305203" duration="3476000" />
       <workItem from="1709897782660" duration="666000" />
     </task>
-=======
     <task id="LOCAL-00001" summary="architecture v2.1&#10;&#10;key generic name modified from &quot;T&quot; to &quot;K&quot;, &#10;+Insert method take one more argument - data: V">
       <option name="closed" value="true" />
       <created>1709892668254</created>
@@ -112,7 +110,6 @@
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
       <updated>1709892668254</updated>
->>>>>>> bcd4223c4efb599d38bae6624dfa9701f82cd386
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
@@ -132,9 +129,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-=======
     <MESSAGE value="architecture v2.1&#10;&#10;key generic name modified from &quot;T&quot; to &quot;K&quot;, &#10;+Insert method take one more argument - data: V" />
-    <option name="LAST_COMMIT_MESSAGE" value="architecture v2.1&#10;&#10;key generic name modified from &quot;T&quot; to &quot;K&quot;, &#10;+Insert method take one more argument - data: V" />
->>>>>>> bcd4223c4efb599d38bae6624dfa9701f82cd386
+    <MESSAGE value="save" />
+    <option name="LAST_COMMIT_MESSAGE" value="save" />
   </component>
 </project>

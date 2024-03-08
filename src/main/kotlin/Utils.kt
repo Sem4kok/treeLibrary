@@ -1,7 +1,7 @@
 
 
 abstract class BinaryTree<K : Comparable<K>, V, U : BinaryTreeNode<K, V, U>> {
-    protected abstract var root: U?
+    protected open var root: U? = null //!
 
     abstract fun insert(key: K, data: V)
 
@@ -22,48 +22,44 @@ abstract class BinaryTree<K : Comparable<K>, V, U : BinaryTreeNode<K, V, U>> {
                 curr.right
             }
         }
-
         return null
     }
 
-    fun getMax() : V? {
-
-        var curr: U = root ?: return null
-        while (curr.right != null) {
-            curr = curr.right!!
+        fun getMax() : V? {
+            var curr: U = root ?: return null
+            while (curr.right != null) {
+                curr = curr.right
+            }
+            return curr.data
         }
 
-        return curr.data
-    }
+        fun getMin() : V {
+            var curr: U = root ?: throw Exception("popa")
+            while (curr.left != null) {
+                curr = curr.let{curr.left}
+            }
 
-    fun getMin() : V? {
-
-        var curr: U = root ?: return null
-        while (curr.left != null) {
-            curr = curr.left!!
+            return curr.data
         }
 
-        return curr.data
-    }
+        protected fun getMaxNodeFromNode(node: U) : U {
 
-    protected fun getMaxNodeFromNode(node: U) : U {
+            var curr: U = node
+            while (curr.right != null) {
+                curr = curr.right!!
+            }
 
-        var curr: U = node
-        while (curr.right != null) {
-            curr = curr.right!!
+            return curr
         }
+        protected fun getMinNodeFromNode(node: U) : U {
 
-        return curr
-    }
-    protected fun getMinNodeFromNode(node: U) : U {
+            var curr: U = node
+            while (curr.left != null) {
+                curr = curr.left!!
+            }
 
-        var curr: U = node
-        while (curr.left != null) {
-            curr = curr.left!!
+            return curr
         }
-
-        return curr
-    }
 }
 
 
