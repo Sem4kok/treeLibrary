@@ -4,14 +4,20 @@ import BinaryTree
 import treeNodes.AVLTreeNode
 import java.lang.Exception
 
-class AVLTree<T: Comparable<T>, V>: BinaryTree<T, V, AVLTreeNode<T, V>>() {
-    override var root: AVLTreeNode<T, V>? = null
+class AVLTree<K: Comparable<K>, V>: BinaryTree<K, V, AVLTreeNode<K, V>>() {
+    override var root: AVLTreeNode<K, V>? = null
 
-    override fun insert(key: T) {
-        // TODO: Implement insertion logic
+    override fun insert(key: K, data: V) {
+
+        if (root == null) {
+            root = AVLTreeNode(key,data)
+            return
+        }
+
+
     }
 
-    override fun remove(key: T) {
+    override fun remove(key: K) {
         // TODO: Implement removal logic
     }
 

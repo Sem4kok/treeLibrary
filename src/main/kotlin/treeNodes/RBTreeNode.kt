@@ -2,10 +2,10 @@ package treeNodes
 import BinaryTreeNode
 
 
-class RBTreeNode<T: Comparable<T>, V>(
-    key: T,
+class RBTreeNode<K: Comparable<K>, V>(
+    key: K,
     data: V
-): BinaryTreeNode<T, V,RBTreeNode<T, V>>(key,data), RedBlack, WithParent<RBTreeNode<T, V>> {
-    override var parent: RBTreeNode<T, V>? = null
+): BinaryTreeNode<K, V,RBTreeNode<K, V>>(key,data), RedBlack, WithParent<RBTreeNode<K, V>> {
+    override var parent: RBTreeNode<K, V>? = null
     override var color: Boolean = false
 }

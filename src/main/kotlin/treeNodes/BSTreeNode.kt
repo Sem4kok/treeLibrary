@@ -1,7 +1,7 @@
 package treeNodes
 import BinaryTreeNode
 
-class BSTreeNode<T: Comparable<T>, V>(
-    key: T,
+class BSTreeNode<K: Comparable<K>, V>(
+    key: K,
     data: V
-) : BinaryTreeNode<T, V,BSTreeNode<T,V>>(key,data)
+) : BinaryTreeNode<K, V,BSTreeNode<K,V>>(key,data)
