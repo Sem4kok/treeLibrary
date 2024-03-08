@@ -1,19 +1,30 @@
-abstract class BinaryTree<T: Comparable<T>, U> {
+
+
+abstract class BinaryTree<T : Comparable<T>, V, U : BinaryTreeNode<T, V, U>> {
     abstract var root: U?
 
     abstract fun insert(key: T)
-    //abstract fun insert(node: U)
 
     abstract fun remove(key: T)
-    //abstract fun remove(node: U)
 
-    abstract fun search(key: T) : U?
-    //abstract fun search(node: U)
+    open fun search(key: T): V? {
+        if (this.root == null) {
+            return null
+        }
 
+        var curr: U? = root
 
-    // We can overload every method
-    // If u want, add new insert/remove/search
-    // With new argument node: U
+        while (curr != null) {
+            if (curr.key == key) return curr.data
+            curr = if (curr.key > key) {
+                curr.left
+            } else {
+                curr.right
+            }
+        }
+
+        throw NoSuchElementException("Element not found")
+    }
 }
 
 

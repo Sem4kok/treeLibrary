@@ -4,15 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5cd5220-665a-4ff2-8d5e-8260a326d8c1" name="Changes" comment="architecture v1.0">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="d5cd5220-665a-4ff2-8d5e-8260a326d8c1" name="Changes" comment="test">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/treeNodes/AVLTreeNode.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/treeNodes/BSTreeNode.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/treeNodes/RBTreeNode.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/trees/AVLTree.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/trees/BSTree.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/trees/RBTree.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/TreeNodes/AVLNode.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/TreeNodes/AVLNode.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/TreeNodes/BSTNode.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/TreeNodes/BSTNode.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/TreeNodes/RBNode.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/TreeNodes/RBNode.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Trees/AVLTree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Trees/AVLTree.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Trees/BSTree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Trees/BSTree.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Trees/RBTree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Trees/RBTree.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/TreeNodes/AVLNode.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/TreeNodes/BSTNode.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/TreeNodes/Heights.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/treeNodes/Heights.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/TreeNodes/RBNode.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/TreeNodes/RedBlack.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/treeNodes/RedBlack.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/TreeNodes/WithParent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/treeNodes/WithParent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Trees/AVLTree.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Trees/BSTree.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Trees/RBTree.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Utils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Utils.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,6 +33,14 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Class" />
+        <option value="Kotlin Interface" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -32,6 +48,9 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -46,9 +65,14 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;work-on-avl&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;work&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Семён/IdeaProjects/TreeLib/src/main/kotlin&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Семён/IdeaProjects/TreeLib/src/main/kotlin&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -59,7 +83,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.1-openjdk-21.0.1-f644763e9732-f98dd351" />
+        <option value="jdk-17.0.9-jbr-17.0.9-4caba194b151-51f1b679" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
       </set>
     </attachedChunks>
   </component>
@@ -71,8 +96,13 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709817246410</updated>
+      <workItem from="1709839350134" duration="4477000" />
+      <workItem from="1709879305203" duration="3476000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
