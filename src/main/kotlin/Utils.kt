@@ -1,7 +1,7 @@
 
 
 abstract class BinaryTree<K : Comparable<K>, V, U : BinaryTreeNode<K, V, U>> {
-    abstract var root: U?
+    protected abstract var root: U?
 
     abstract fun insert(key: K, data: V)
 
@@ -24,6 +24,45 @@ abstract class BinaryTree<K : Comparable<K>, V, U : BinaryTreeNode<K, V, U>> {
         }
 
         return null
+    }
+
+    fun getMax() : V? {
+
+        var curr: U = root ?: return null
+        while (curr.right != null) {
+            curr = curr.right!!
+        }
+
+        return curr.data
+    }
+
+    fun getMin() : V? {
+
+        var curr: U = root ?: return null
+        while (curr.left != null) {
+            curr = curr.left!!
+        }
+
+        return curr.data
+    }
+
+    protected fun getMaxNodeFromNode(node: U) : U {
+
+        var curr: U = node
+        while (curr.right != null) {
+            curr = curr.right!!
+        }
+
+        return curr
+    }
+    protected fun getMinNodeFromNode(node: U) : U {
+
+        var curr: U = node
+        while (curr.left != null) {
+            curr = curr.left!!
+        }
+
+        return curr
     }
 }
 
