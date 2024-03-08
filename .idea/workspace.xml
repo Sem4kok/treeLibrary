@@ -40,6 +40,20 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "suvorovrain"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="96817446-6d7c-4987-be2e-20d60ead475d" />
+        <option name="url" value="git@github.com:suvorovrain/treeLibrary.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -56,7 +70,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "avl-creating",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Семён/IdeaProjects/TreeLib/src/main/kotlin",
     "node.js.detected.package.eslint": "true",
@@ -89,6 +103,7 @@
       <updated>1709817246410</updated>
       <workItem from="1709839350134" duration="4477000" />
       <workItem from="1709879305203" duration="3476000" />
+      <workItem from="1709897782660" duration="51000" />
     </task>
     <servers />
   </component>
