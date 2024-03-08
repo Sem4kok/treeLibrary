@@ -1,4 +1,4 @@
-
+import java.security.InvalidKeyException
 
 abstract class BinaryTree<K : Comparable<K>, V, U : BinaryTreeNode<K, V, U>> {
     protected abstract var root: U?
@@ -9,13 +9,34 @@ abstract class BinaryTree<K : Comparable<K>, V, U : BinaryTreeNode<K, V, U>> {
 
     open fun search(key: K): V? {
         if (this.root == null) {
-            return null
+            throw InvalidKeyException("Empty tree")
         }
 
         var curr: U? = root
 
         while (curr != null) {
             if (curr.key == key) return curr.data
+            curr = if (curr.key > key) {
+                curr.left
+            } else {
+                curr.right
+            }
+        }
+
+        throw InvalidKeyException("No such key in the Tree")
+    }
+
+    // TODO rewrite this shit
+    // TODO val node = searchH(key) ?: return
+    private fun searchH(key: K): U? {
+        if (this.root == null) {
+            return null
+        }
+
+        var curr: U? = root
+
+        while (curr != null) {
+            if (curr.key == key) return curr
             curr = if (curr.key > key) {
                 curr.left
             } else {
@@ -55,6 +76,7 @@ abstract class BinaryTree<K : Comparable<K>, V, U : BinaryTreeNode<K, V, U>> {
 
         return curr
     }
+
     protected fun getMinNodeFromNode(node: U) : U {
 
         var curr: U = node
@@ -63,6 +85,13 @@ abstract class BinaryTree<K : Comparable<K>, V, U : BinaryTreeNode<K, V, U>> {
         }
 
         return curr
+    }
+
+    open fun traversal(node: U?) {
+        if (node == null) return
+        traversal(node.left)
+        print("${ node.key } ")
+        traversal(node.right)
     }
 }
 
