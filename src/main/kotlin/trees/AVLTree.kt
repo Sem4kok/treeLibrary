@@ -31,18 +31,17 @@ class AVLTree<K: Comparable<K>, V>: BinaryTree<K, V, AVLTreeNode<K, V>>() {
             }
         }
 
-        val node: AVLTreeNode<K, V>
+        val node: AVLTreeNode<K, V>?
         if (currParent!!.key > key) {
             currParent.left = AVLTreeNode(key, data)
-            currParent.height = maxOf(getRightChildHeight(currParent),getLeftChildHeight(currParent)) + 1
-            node = currParent.left!!
+            node = currParent.left
         } else {
             currParent.right = AVLTreeNode(key, data)
-            currParent.height = maxOf(getRightChildHeight(currParent),getLeftChildHeight(currParent)) + 1
-            node = currParent.left!!
+            node = currParent.right!!
         }
 
-        return balanceTreeByNode(node)
+        updateNodeHeight(currParent)
+        return balanceTreeByNode(currParent)
     }
 
     private fun balanceFactor(node: AVLTreeNode<K, V>) : Int {
@@ -50,16 +49,30 @@ class AVLTree<K: Comparable<K>, V>: BinaryTree<K, V, AVLTreeNode<K, V>>() {
     }
 
     private fun getLeftChildHeight(node: AVLTreeNode<K, V>?) : Int {
-        return when {
-            node == null -> 0
-            else -> node.height
-        }
+        return node?.height ?: 0
     }
     private fun getRightChildHeight(node: AVLTreeNode<K, V>?) : Int {
         return when {
             node == null -> 0
             else -> node.height
         }
+    }
+
+    private fun updateNodeHeight(node: AVLTreeNode<K, V>) {
+        node.height = maxOf(getLeftChildHeight(node.left), getRightChildHeight(node.right)) + 1
+    }
+
+    private fun rightRotate(node: AVLTreeNode<K, V>): AVLTreeNode<K, V> {
+        val leftChild = node.left
+        val leftChildRightChild = leftChild!!.right
+
+        leftChild.right = node
+        node.left = leftChildRightChild
+
+        updateNodeHeight(node)
+        updateNodeHeight(leftChildRightChild!!)
+
+        return leftChildRightChild
     }
 
     private fun balanceTreeByNode(node: AVLTreeNode<K, V>) {

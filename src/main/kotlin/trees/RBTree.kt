@@ -6,8 +6,8 @@ import treeNodes.RBTreeNode
 
 
 class RBTree<K: Comparable<K>, V>: BinaryTree<K, V, RBTreeNode<K, V>>() {
-    val RED: Boolean = false
-    val BLACK: Boolean = true
+    val RED: Boolean = true
+    val BLACK: Boolean = false
 
     override var root: RBTreeNode<K, V>? = null
 
@@ -19,6 +19,5 @@ class RBTree<K: Comparable<K>, V>: BinaryTree<K, V, RBTreeNode<K, V>>() {
     override fun remove(key: K) {
         TODO("Write realization of remove")
     }
-
 
 }
