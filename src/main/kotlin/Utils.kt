@@ -15,7 +15,7 @@ abstract class BinaryTree<K : Comparable<K>, V, U : BinaryTreeNode<K, V, U>> {
         var curr: U? = root
 
         while (curr != null) {
-            if (curr.key == key) return curr.data
+            if (curr.key == key) return curr.value
             curr = if (curr.key > key) {
                 curr.left
             } else {
@@ -53,7 +53,7 @@ abstract class BinaryTree<K : Comparable<K>, V, U : BinaryTreeNode<K, V, U>> {
             while (curr.right != null) {
                 curr = curr.right
             }
-            return curr.data
+            return curr.value
         }
 
         fun getMin() : V {
@@ -62,14 +62,14 @@ abstract class BinaryTree<K : Comparable<K>, V, U : BinaryTreeNode<K, V, U>> {
                 curr = curr.let{curr.left}
             }
 
-            return curr.data
+            return curr.value
         }
 
         protected fun getMaxNodeFromNode(node: U) : U {
 
             var curr: U = node
             while (curr.right != null) {
-                curr = curr.right!!
+                curr = curr.right  
             }
 
             return curr
@@ -95,7 +95,7 @@ abstract class BinaryTree<K : Comparable<K>, V, U : BinaryTreeNode<K, V, U>> {
 
 abstract class BinaryTreeNode<K: Comparable<K>, V, U> (
     var key: K,
-    var data: V
+    var value: V
 ) {
     open var left: U? = null
     open var right: U? = null
