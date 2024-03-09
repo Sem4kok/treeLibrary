@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5cd5220-665a-4ff2-8d5e-8260a326d8c1" name="Changes" comment="architecture v2.1&#10;&#10;+new methods in abstract class BinaryTree: getMax(),getMin()&#10;+new protected methods in BinaryTree for finding Max, Min nodes by key from needed node">
+    <list default="true" id="d5cd5220-665a-4ff2-8d5e-8260a326d8c1" name="Changes" comment="architecture v2.2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Utils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Utils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/treeNodes/AVLTreeNode.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/treeNodes/AVLTreeNode.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/trees/AVLTree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/trees/AVLTree.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/trees/RBTree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/trees/RBTree.kt" afterDir="false" />
     </list>
@@ -49,20 +48,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "avl-creating",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Семён/IdeaProjects/TreeLib/src/main/kotlin",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build TreeLib.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.AVLTreeKt.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Семён/IdeaProjects/TreeLib/src/main/kotlin&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Семён\IdeaProjects\TreeLib\src\main\kotlin" />
@@ -71,8 +72,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.9-jbr-17.0.9-4caba194b151-51f1b679" />
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+        <option value="jdk-21.0.1-openjdk-21.0.1-f644763e9732-f98dd351" />
       </set>
     </attachedChunks>
   </component>
@@ -124,5 +124,12 @@
     <MESSAGE value="architecture v2.1&#10;&#10;key generic name modified from &quot;T&quot; to &quot;K&quot;, &#10;+Insert method take one more argument - data: V" />
     <MESSAGE value="architecture v2.1&#10;&#10;+new methods in abstract class BinaryTree: getMax(),getMin()&#10;+new protected methods in BinaryTree for finding Max, Min nodes by key from needed node" />
     <option name="LAST_COMMIT_MESSAGE" value="architecture v2.1&#10;&#10;+new methods in abstract class BinaryTree: getMax(),getMin()&#10;+new protected methods in BinaryTree for finding Max, Min nodes by key from needed node" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="trees.AVLTree" memberName="root" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

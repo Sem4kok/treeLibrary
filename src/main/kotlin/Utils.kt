@@ -26,17 +26,20 @@ abstract class BinaryTree<K : Comparable<K>, V, U : BinaryTreeNode<K, V, U>> {
         throw InvalidKeyException("No such key in the Tree")
     }
 
-    // TODO rewrite this shit
-    // TODO val node = searchH(key) ?: return
-    private fun searchH(key: K): U? {
+    // TODO REWRITE MAYBE PRIVATE METHOD
+    protected fun searchNodeAndParent(key: K): Pair<U?, U?> /* Pair<Child, Parent> */ {
         if (this.root == null) {
-            return null
+            return Pair(null,null)
         }
 
         var curr: U? = root
+        var currParent: U? = null
+
+
 
         while (curr != null) {
-            if (curr.key == key) return curr
+            if (curr.key == key) return Pair(curr, currParent)
+            currParent = curr
             curr = if (curr.key > key) {
                 curr.left
             } else {
@@ -44,7 +47,7 @@ abstract class BinaryTree<K : Comparable<K>, V, U : BinaryTreeNode<K, V, U>> {
             }
         }
 
-        return null
+        return Pair(null,null)
     }
 
     fun getMax() : V? {
@@ -87,6 +90,15 @@ abstract class BinaryTree<K : Comparable<K>, V, U : BinaryTreeNode<K, V, U>> {
         return curr
     }
 
+    protected fun isEmpty(): Boolean {
+        return when {
+            root == null -> true
+            else -> false
+        }
+    }
+
+    // TODO seem's like shitty code
+    // TODO DELETE
     open fun traversal(node: U?) {
         if (node == null) return
         traversal(node.left)
