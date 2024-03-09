@@ -1,7 +1,7 @@
 import java.security.InvalidKeyException
 
 abstract class BinaryTree<K : Comparable<K>, V, U : BinaryTreeNode<K, V, U>> {
-    protected abstract var root: U?
+    protected open var root: U? = null
 
     abstract fun insert(key: K, data: V)
 
