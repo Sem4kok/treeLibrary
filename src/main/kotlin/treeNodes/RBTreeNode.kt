@@ -1,11 +1,14 @@
 package treeNodes
 import BinaryTreeNode
 
+enum class Color{
+    RED, BLACK
+}
 
-class RBTreeNode<K: Comparable<K>, V>(
+open class RBTreeNode<K: Comparable<K>, V>(
     key: K,
-    data: V
-): BinaryTreeNode<K, V,RBTreeNode<K, V>>(key,data), RedBlack, WithParent<RBTreeNode<K, V>> {
+    data: V,
+    var color: Color = Color.BLACK
+): BinaryTreeNode<K, V,RBTreeNode<K, V>>(key,data), WithParent<RBTreeNode<K, V>> {
     override var parent: RBTreeNode<K, V>? = null
-    override var color: Boolean = false
 }
