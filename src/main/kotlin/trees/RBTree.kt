@@ -194,8 +194,9 @@ class RBTree<K: Comparable<K>, V>: BinaryTree<K, V, RBTreeNode<K, V>>() {
         }
         root?.color = BLACK
     }
-    /*
-    fun searchTree(k: Int): RBTreeNode<K, V>? {
+
+    fun searchTree(k: K): RBTreeNode<K, V>? {
+
         return searchTreeHelper(this.root, k)
     }
 
@@ -310,3 +311,4 @@ class RBTree<K: Comparable<K>, V>: BinaryTree<K, V, RBTreeNode<K, V>>() {
     }
 
 }
+
