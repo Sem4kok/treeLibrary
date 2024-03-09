@@ -2,7 +2,6 @@ package trees
 
 import BinaryTree
 import treeNodes.AVLTreeNode
-import java.lang.Exception
 
 class AVLTree<K: Comparable<K>, V>: BinaryTree<K, V, AVLTreeNode<K, V>>() {
     //override var root: AVLTreeNode<K, V>? = null
@@ -25,7 +24,7 @@ class AVLTree<K: Comparable<K>, V>: BinaryTree<K, V, AVLTreeNode<K, V>>() {
             } else if (curr.key < key) {
                 curr = curr.right
             } else {
-                curr.data = data
+                curr.value = data
                 return /* nothing to balance after overwriting */
             }
         }
