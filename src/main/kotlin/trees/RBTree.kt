@@ -6,8 +6,6 @@ import treeNodes.Color
 import treeNodes.RBTreeNode
 
 class RBTree<K : Comparable<K>, V> : BinaryTree<K, V, RBTreeNode<K, V>>() {
-
-    val NilNode = RBTreeNode<Int,Int>(0,0)
     fun searchNode(key: K): RBTreeNode<K, V>? {
         var node: RBTreeNode<K, V>? = root
         while (node != null) {
@@ -41,7 +39,7 @@ class RBTree<K : Comparable<K>, V> : BinaryTree<K, V, RBTreeNode<K, V>>() {
         }
 
         // Insert new node
-        val newNode: RBTreeNode<K, V> = RBTreeNode<K, V>(key, data)
+        val newNode: RBTreeNode<K, V> = RBTreeNode(key, data)
         newNode.color = Color.RED
         if (parent == null) {
             root = newNode
@@ -65,7 +63,7 @@ class RBTree<K : Comparable<K>, V> : BinaryTree<K, V, RBTreeNode<K, V>>() {
         // Case 1: Parent is null, we've reached the root, the end of the recursion
 
         // Parent is black --> nothing to do
-        if (parent.color === Color.BLACK) {
+        if (isBlack(parent)) {
             return
         }
 
@@ -87,7 +85,7 @@ class RBTree<K : Comparable<K>, V> : BinaryTree<K, V, RBTreeNode<K, V>>() {
         val uncle: RBTreeNode<K, V>? = getUncle(parent)
 
         // Case 3: Uncle is red -> recolor parent, grandparent and uncle
-        if (uncle != null && uncle.color === Color.RED) {
+        if (uncle != null && !isBlack(uncle)) {
             parent.color = Color.BLACK
             grandparent.color = Color.RED
             uncle.color = Color.BLACK
@@ -100,7 +98,7 @@ class RBTree<K : Comparable<K>, V> : BinaryTree<K, V, RBTreeNode<K, V>>() {
             if (node === parent.right) {
                 rotateLeft(parent)
 
-                // Let "parent" point to the new root node of the rotated sub-tree.
+                // Let "parent" point to the new root node of the rotated subtree.
                 // It will be recolored in the next step, which we're going to fall-through to.
                 parent = node
             }
@@ -116,7 +114,7 @@ class RBTree<K : Comparable<K>, V> : BinaryTree<K, V, RBTreeNode<K, V>>() {
             if (node === parent.left) {
                 rotateRight(parent)
 
-                // Let "parent" point to the new root node of the rotated sub-tree.
+                // Let "parent" point to the new root node of the rotated subtree.
                 // It will be recolored in the next step, which we're going to fall-through to.
                 parent = node
             }
@@ -185,11 +183,6 @@ class RBTree<K : Comparable<K>, V> : BinaryTree<K, V, RBTreeNode<K, V>>() {
 
         if (deletedNodeColor == Color.BLACK) {
             fixRedBlackPropertiesAfterDelete(movedUpNode)
-
-            // Remove the temporary NIL node
-            if (movedUpNode == NilNode) {
-                replaceParentsChild(movedUpNode.parent, movedUpNode, null)
-            }
         }
     }
 
@@ -208,11 +201,11 @@ class RBTree<K : Comparable<K>, V> : BinaryTree<K, V, RBTreeNode<K, V>>() {
     }
 
     private fun findMinimum(node: RBTreeNode<K, V>): RBTreeNode<K, V> {
-        var node: RBTreeNode<K, V> = node
-        while (node.left != null)  {
-            node = node.left!!
+        var tmpnode: RBTreeNode<K, V> = node
+        while (tmpnode.left != null)  {
+            tmpnode = tmpnode.left!!
         }
-        return node
+        return tmpnode
     }
 
     // Ignore SonarCloud complains about commented code line 256.
@@ -227,7 +220,7 @@ class RBTree<K : Comparable<K>, V> : BinaryTree<K, V, RBTreeNode<K, V>>() {
         var sibling: RBTreeNode<K, V>? = getSibling(node)
 
         // Case 2: Red sibling
-        if (sibling?.color === Color.RED) {
+        if (!isBlack(sibling)) {
             handleRedSibling(node, sibling)
             sibling = getSibling(node) // Get new sibling for fall-through to cases 3-6
         }
@@ -237,7 +230,7 @@ class RBTree<K : Comparable<K>, V> : BinaryTree<K, V, RBTreeNode<K, V>>() {
             sibling?.color = Color.RED
 
             // Case 3: Black sibling with two black children + red parent
-            if (node?.parent?.color === Color.RED) {
+            if (!isBlack(node?.parent)) {
                 node?.parent?.color = Color.BLACK
             } else {
                 fixRedBlackPropertiesAfterDelete(node?.parent)
@@ -247,9 +240,9 @@ class RBTree<K : Comparable<K>, V> : BinaryTree<K, V, RBTreeNode<K, V>>() {
         }
     }
 
-    private fun handleRedSibling(node: RBTreeNode<K, V>?, sibling: RBTreeNode<K, V>) {
+    private fun handleRedSibling(node: RBTreeNode<K, V>?, sibling: RBTreeNode<K, V>?) {
         // Recolor...
-        sibling.color = Color.BLACK
+        sibling?.color = Color.BLACK
         node?.parent?.color = Color.RED
 
         // ... and rotate
@@ -261,35 +254,35 @@ class RBTree<K : Comparable<K>, V> : BinaryTree<K, V, RBTreeNode<K, V>>() {
     }
 
     private fun handleBlackSiblingWithAtLeastOneRedChild(node: RBTreeNode<K, V>?, sibling: RBTreeNode<K, V>?) {
-        var sibling: RBTreeNode<K, V>? = sibling
+        var tmpsibling: RBTreeNode<K, V>? = sibling
         val nodeIsLeftChild = node === node?.parent?.left
 
         // Case 5: Black sibling with at least one red child + "outer nephew" is black
         // --> Recolor sibling and its child, and rotate around sibling
-        if (nodeIsLeftChild && isBlack(sibling?.right)) {
-            sibling?.left?.color = Color.BLACK
-            sibling?.color = Color.RED
-            rotateRight(sibling)
-            sibling = node?.parent?.right
-        } else if (!nodeIsLeftChild && isBlack(sibling?.left)) {
-            sibling?.right?.color = Color.BLACK
-            sibling?.color = Color.RED
-            rotateLeft(sibling)
-            sibling = node?.parent?.left
+        if (nodeIsLeftChild && isBlack(tmpsibling?.right)) {
+            tmpsibling?.left?.color = Color.BLACK
+            tmpsibling?.color = Color.RED
+            rotateRight(tmpsibling)
+            tmpsibling = node?.parent?.right
+        } else if (!nodeIsLeftChild && isBlack(tmpsibling?.left)) {
+            tmpsibling?.right?.color = Color.BLACK
+            tmpsibling?.color = Color.RED
+            rotateLeft(tmpsibling)
+            tmpsibling = node?.parent?.left
         }
 
         // Fall-through to case 6...
 
         // Case 6: Black sibling with at least one red child + "outer nephew" is red
         // --> Recolor sibling + parent + sibling's child, and rotate around parent
-        val ParentColor = node?.parent?.color ?: throw IllegalStateException("Ya daun")
-        sibling?.color = ParentColor
+        val parentColor = node?.parent?.color ?: throw IllegalStateException("Ya daun")
+        tmpsibling?.color = parentColor
         node.parent?.color = Color.BLACK
         if (nodeIsLeftChild) {
-            sibling?.right?.color = Color.BLACK
+            tmpsibling?.right?.color = Color.BLACK
             rotateLeft(node.parent)
         } else {
-            sibling?.left?.color = Color.BLACK
+            tmpsibling?.left?.color = Color.BLACK
             rotateRight(node.parent)
         }
     }
@@ -306,7 +299,7 @@ class RBTree<K : Comparable<K>, V> : BinaryTree<K, V, RBTreeNode<K, V>>() {
     }
 
     private fun isBlack(node: RBTreeNode<K, V>?): Boolean {
-        return node == null || node.color === Color.BLACK
+        return node == null || node.color == Color.BLACK
     }
 
     // -- Helpers for insertion and deletion ---------------------------------------------------------
@@ -359,7 +352,5 @@ class RBTree<K : Comparable<K>, V> : BinaryTree<K, V, RBTreeNode<K, V>>() {
             newChild.parent = parent
         }
     }
-
-
 }
 
