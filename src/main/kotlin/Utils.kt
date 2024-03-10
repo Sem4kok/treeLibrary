@@ -26,29 +26,6 @@ abstract class BinaryTree<K : Comparable<K>, V, U : BinaryTreeNode<K, V, U>> {
         throw InvalidKeyException("No such key in the Tree")
     }
 
-    // TODO REWRITE MAYBE PRIVATE METHOD
-    protected fun searchNodeAndParent(key: K): Pair<U?, U?> /* Pair<Child, Parent> */ {
-        if (this.root == null) {
-            return Pair(null,null)
-        }
-
-        var curr: U? = root
-        var currParent: U? = null
-
-
-
-        while (curr != null) {
-            if (curr.key == key) return Pair(curr, currParent)
-            currParent = curr
-            curr = if (curr.key > key) {
-                curr.left
-            } else {
-                curr.right
-            }
-        }
-
-        return Pair(null,null)
-    }
 
     fun getMax() : V? {
 
@@ -68,16 +45,6 @@ abstract class BinaryTree<K : Comparable<K>, V, U : BinaryTreeNode<K, V, U>> {
         }
 
         return curr.data
-    }
-
-    protected fun getMaxNodeFromNode(node: U) : U {
-
-        var curr: U = node
-        while (curr.right != null) {
-            curr = curr.right!!
-        }
-
-        return curr
     }
 
     protected fun getMinNodeFromNode(node: U) : U {

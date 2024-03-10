@@ -12,84 +12,42 @@ class AVLTree<K: Comparable<K>, V>: BinaryTree<K, V, AVLTreeNode<K, V>>() {
     }
 
     override fun remove(key: K) {
+        root = remove(root, key)
+    }
 
-        val root = this.root ?: return
+    private fun remove(node: AVLTreeNode<K, V>?, key: K): AVLTreeNode<K, V>? {
 
-        val (target, targetParent) = searchNodeAndParent(key)
-        if (target == null) { return }
-
-        // TODO BALANCE TREE
-        if (isChildless(target)) {
-
-            when {
-                targetParent == null -> return
-                isLeftChild(target,targetParent) -> {
-
-                    targetParent.left = null
-                    //updateHeight(targetParent)
-                    // TODO balanceTree()
-                }
-                else -> {
-
-                    targetParent.right = null
-                    //updateHeight(targetParent)
-                    //TODO balanceTree()
-                }
-            }
-            return
-        } else if (target.right == null) {
-
-            // TODO delete comment
-            //val leftChild = target.left ?: return
-                when {
-                targetParent == null -> {
-                    this.root = target.left
-                    return
-                }
-
-                isLeftChild(target,targetParent) -> {
-
-                    targetParent.left = target.left
-                    //updateHeight(targetParent)
-                    // TODO balanceTree()
-                }
-
-                else -> {
-
-                    targetParent.right = target.left
-                    //updateHeight(targetParent)
-                    //TODO balanceTree()
-                }
-            }
-            return
-        } else if (target.left == null) {
+        if (node == null) {
+            return null
+        } else if (key < node.key) {
+            node.left = remove(node.left, key)
+        } else if (key > node.key) {
+            node.right = remove(node.right, key)
+        } else {
 
             when {
-                targetParent == null -> {
-                    this.root = target.right
-                    return
-                }
-
-                isLeftChild(target,targetParent) -> {
-
-                    targetParent.left = target.right
-                    //updateHeight(targetParent)
-                    // TODO balanceTree()
-                }
-
+                node.left == null -> return node.right
+                node.right == null -> return node.left
                 else -> {
+                    // TODO fix Exception throwing (return null or fairy fix)
+                    var right: AVLTreeNode<K, V>? = null
 
-                    targetParent.right = target.right
-                    //updateHeight(targetParent)
-                    //TODO balanceTree()
+                    if (node.right != null) {
+                        right = node.right ?: throw Exception("Thread problems")
+                        right = getMinNodeFromNode(right)
+                    }
+
+                    val tmp = right ?: node
+                    node.key = tmp.key
+                    node.data = tmp.data
+                    node.right = remove(node.right, tmp.key)
+
                 }
             }
-            return
-
         }
 
-
-
+        updateHeight(node)
+        return removingRotate(node)
     }
 
     private fun insert(startNode: AVLTreeNode<K, V>?, key: K, data: V): AVLTreeNode<K, V> {
@@ -171,6 +129,41 @@ class AVLTree<K: Comparable<K>, V>: BinaryTree<K, V, AVLTreeNode<K, V>>() {
         return node
     }
 
+    private fun removingRotate(node: AVLTreeNode<K, V>): AVLTreeNode<K, V> {
+
+        if (getHeight(node.left) - getHeight(node.right) == 2) {
+
+            val leftChild = node.left
+            if (leftChild != null) {
+                if (getHeight(leftChild.left) - getHeight(leftChild.right) >= 0) {
+                    return rightRotate(node)
+                }
+
+                if (getHeight(leftChild.left) - getHeight(leftChild.right) == -1) {
+                    node.left = leftRotate(leftChild)
+                    return rightRotate(node)
+                }
+            }
+        }
+
+        if (getHeight(node.left) - getHeight(node.right) == -2) {
+
+            val rightChild = node.right
+            if (rightChild != null) {
+                if (getHeight(rightChild.left) - getHeight(rightChild.right) <= 0) {
+                    return leftRotate(node)
+                }
+
+                if (getHeight(rightChild.left) - getHeight(rightChild.right) == 1) {
+                    node.right = rightRotate(rightChild)
+                    return leftRotate(node)
+                }
+            }
+        }
+
+        return node
+    }
+
     private fun updateHeight(node: AVLTreeNode<K, V>?) {
         when {
             node == null -> return
@@ -180,33 +173,4 @@ class AVLTree<K: Comparable<K>, V>: BinaryTree<K, V, AVLTreeNode<K, V>>() {
     private fun getHeight(node: AVLTreeNode<K, V>?): Int {
         return node?.height ?: 0
     }
-
-    private fun isChildless(node: AVLTreeNode<K, V>): Boolean {
-        return when {
-            node.left == null && node.right == null -> true
-            else -> false
-        }
-    }
-
-
-    // TODO REWRITE EXCEPTION
-    private fun isLeftChild(child: AVLTreeNode<K, V>,
-                            parent: AVLTreeNode<K, V>): Boolean {
-        return when {
-            parent.left == child -> true
-            parent.right == child -> false
-            else -> throw Exception("Parent hasn't this child")
-        }
-    }
-
-}
-
-fun main() {
-    val tree = AVLTree<Int, Int>()
-    tree.insert(5,111)
-    tree.insert(2,222)
-    tree.insert(1,444)
-    tree.insert(12,555)
-    tree.insert(2,333)
-    tree.insert(6,555)
 }
