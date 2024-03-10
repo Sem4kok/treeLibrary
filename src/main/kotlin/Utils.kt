@@ -1,89 +1,50 @@
 import java.security.InvalidKeyException
+import java.util.concurrent.atomic.AtomicReference
+
 
 abstract class BinaryTree<K : Comparable<K>, V, U : BinaryTreeNode<K, V, U>> {
     protected open var root: U? = null //!
 
-    abstract fun insert(key: K, data: V)
+    abstract fun insert(key: K, value: V)
 
     abstract fun remove(key: K)
 
     open fun search(key: K): V? {
+        return searchNode(key).value
+    }
+
+    protected fun searchNode(key: K): U {
         if (this.root == null) {
             throw InvalidKeyException("Empty tree")
         }
-
         var curr: U? = root
-
-        while (curr != null) {
-            if (curr.key == key) return curr.value
+        while (curr != null && curr.key != key) {
             curr = if (curr.key > key) {
                 curr.left
             } else {
                 curr.right
             }
         }
-
-
-        throw InvalidKeyException("No such key in the Tree")
+        if (curr == null) {
+            throw InvalidKeyException("No such key in the Tree")
+        }
+        return curr
     }
 
     // TODO REWRITE MAYBE PRIVATE METHOD
-    protected fun searchNodeAndParent(key: K): Pair<U?, U?> /* Pair<Child, Parent> */ {
-        if (this.root == null) {
-            return Pair(null,null)
-        }
 
-        var curr: U? = root
-        var currParent: U? = null
-
-
-
-        while (curr != null) {
-            if (curr.key == key) return Pair(curr, currParent)
-            currParent = curr
-            curr = if (curr.key > key) {
-                curr.left
-            } else {
-                curr.right
+    protected fun getMinNodeFromNode(node: U): U {
+        var leftChild = node.left
+        do {
+            if (leftChild != null) {
+                val tmpLeftChild = leftChild
+                leftChild = leftChild.left
+                if (leftChild == null) {
+                    return tmpLeftChild
+                }
             }
-        }
-
-        return Pair(null,null)
-    }
-
-        fun getMax() : V? {
-            var curr: U = root ?: return null
-            while (curr.right != null) {
-                curr = curr.right
-            }
-            return curr.value
-        }
-
-        fun getMin() : V {
-            var curr: U = root ?: throw Exception("popa")
-            while (curr.left != null) {
-                curr = curr.let{curr.left}
-            }
-
-            return curr.value
-        }
-
-        protected fun getMaxNodeFromNode(node: U) : U {
-
-            var curr: U = node
-            while (curr.right != null) {
-                curr = curr.right  
-            }
-
-            return curr
-        }
-        protected fun getMinNodeFromNode(node: U) : U {
-
-            var curr: U = node
-            while (curr.left != null) {
-                curr = curr.left!!
-            }
-        return curr
+        } while (leftChild != null)
+        return node
     }
 
 
@@ -99,13 +60,13 @@ abstract class BinaryTree<K : Comparable<K>, V, U : BinaryTreeNode<K, V, U>> {
     open fun traversal(node: U?) {
         if (node == null) return
         traversal(node.left)
-        print("${ node.key } ")
+        print("${node.key} ")
         traversal(node.right)
     }
 }
 
 
-abstract class BinaryTreeNode<K: Comparable<K>, V, U> (
+abstract class BinaryTreeNode<K : Comparable<K>, V, U>(
     var key: K,
     var value: V
 ) {
