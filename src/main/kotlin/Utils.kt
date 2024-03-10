@@ -3,7 +3,7 @@ import java.util.concurrent.atomic.AtomicReference
 
 
 abstract class BinaryTree<K : Comparable<K>, V, U : BinaryTreeNode<K, V, U>> {
-    protected open var root: U? = null //!
+    protected open var root: U? = null
 
     abstract fun insert(key: K, value: V)
 
@@ -13,25 +13,34 @@ abstract class BinaryTree<K : Comparable<K>, V, U : BinaryTreeNode<K, V, U>> {
         return searchNode(key).value
     }
 
-    protected fun searchNode(key: K): U {
-        if (this.root == null) {
-            throw InvalidKeyException("Empty tree")
+
+    fun getMax() : V? {
+
+        var curr: U = root ?: return null
+        while (curr.right != null) {
+            curr = curr.right!!
         }
-        var curr: U? = root
-        while (curr != null && curr.key != key) {
-            curr = if (curr.key > key) {
-                curr.left
-            } else {
-                curr.right
-            }
-        }
-        if (curr == null) {
-            throw InvalidKeyException("No such key in the Tree")
-        }
-        return curr
+
+        return curr.data
     }
 
-    // TODO REWRITE MAYBE PRIVATE METHOD
+    fun getMin() : V? {
+
+        var curr: U = root ?: return null
+        while (curr.left != null) {
+            curr = curr.left!!
+        }
+
+        return curr.data
+    }
+
+    protected fun getMinNodeFromNode(node: U) : U {
+
+        var curr: U = node
+        while (curr.left != null) {
+            curr = curr.left!!
+        }
+
 
     protected fun getMinNodeFromNode(node: U): U {
         var leftChild = node.left
