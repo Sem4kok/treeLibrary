@@ -37,7 +37,7 @@ class BSTree<K : Comparable<K>, V> : BinaryTree<K, V, BSTreeNode<K, V>>() {
             root = remove(tmpRoot, key)
         }
     }
-    //TODO fix this shit
+    //TODO fix this shitt
     private fun remove(node: BSTreeNode<K, V>, key: K): BSTreeNode<K, V> {
         var leftChild = node.left
         var rightChild = node.right
