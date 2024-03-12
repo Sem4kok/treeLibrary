@@ -128,7 +128,7 @@ class RBTree<K : Comparable<K>, V> : BinaryTree<K, V, RBTreeNode<K, V>>() {
         }
     }
 
-    private fun getUncle(parent: RBTreeNode<K, V>): RBTreeNode<K, V>?{
+    private fun getUncle(parent: RBTreeNode<K, V>): RBTreeNode<K, V>? {
         val grandparent: RBTreeNode<K, V>? = parent.parent
         return if (grandparent?.left === parent) {
             grandparent.right
@@ -202,7 +202,7 @@ class RBTree<K : Comparable<K>, V> : BinaryTree<K, V, RBTreeNode<K, V>>() {
 
     private fun findMinimum(node: RBTreeNode<K, V>): RBTreeNode<K, V> {
         var tmpnode: RBTreeNode<K, V> = node
-        while (tmpnode.left != null)  {
+        while (tmpnode.left != null) {
             tmpnode = tmpnode.left!!
         }
         return tmpnode
