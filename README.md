@@ -8,9 +8,27 @@ Tree Library is being actively developed by SPBU students. The library is curren
 
 ## Usage
 
-What did you learn while building this project? What challenges did you face and how did you overcome them?
-
-
+At initialization time, specify the comparable data type as the first parameter, and what you want to store as the second parameter - It can be anything.
+```
+    val tree1 = BSTree<String, Text>()
+    val tree2 = AVLTree<Double, Photo>()
+    val tree3 = RBTree<Int, BigInt>()
+```
+Same keys are NOT ALOWWED. Adding by a key that was already in the tree will not change anything
+```
+    val tree = RBTree<Int, String>()
+    tree.insert(1,"Bulldog")
+    tree.insert(1,"English Cocker Spaniel")
+    println(tree.search(1)) // Exception in thread "main" java.lang.IllegalArgumentException: BST already contains a node with key 1
+```
+First you need to replace the value of the key
+```
+    val tree = RBTree<Int, String>()
+    tree.insert(1,"Bulldog")
+    tree.remove(1)
+    tree.insert(1,"English Cocker Spaniel")
+    println(tree.search(1)) // Bulldog
+```
 ## Authors
 
 - [@suvorovrain](https://github.com/suvorovrain)
