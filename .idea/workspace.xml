@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5cd5220-665a-4ff2-8d5e-8260a326d8c1" name="Changes" comment="architecture v2.2">
+    <list default="true" id="d4ce1e42-f08c-4f9e-bb41-ca453e2a6a6f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Utils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Utils.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/treeNodes/BSTreeNode.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/treeNodes/BSTreeNode.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/trees/AVLTree.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/trees/AVLTree.kt" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +37,20 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;suvorovrain&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="96817446-6d7c-4987-be2e-20d60ead475d" />
+        <option name="url" value="git@github.com:Sem4kok/treeLibrary.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -47,33 +63,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build TreeLib.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.AVLTreeKt.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Семён/IdeaProjects/TreeLib/src/main/kotlin&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "Merging main",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Семён\IdeaProjects\TreeLib\src\main\kotlin" />
     </key>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-21.0.1-openjdk-21.0.1-f644763e9732-f98dd351" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -85,6 +84,8 @@
       <updated>1709817246410</updated>
       <workItem from="1709839350134" duration="4477000" />
       <workItem from="1709879305203" duration="3476000" />
+      <workItem from="1709897782660" duration="666000" />
+      <workItem from="1709971441842" duration="1587000" />
     </task>
     <task id="LOCAL-00001" summary="architecture v2.1&#10;&#10;key generic name modified from &quot;T&quot; to &quot;K&quot;, &#10;+Insert method take one more argument - data: V">
       <option name="closed" value="true" />
@@ -122,7 +123,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="architecture v2.1&#10;&#10;key generic name modified from &quot;T&quot; to &quot;K&quot;, &#10;+Insert method take one more argument - data: V" />
     <MESSAGE value="architecture v2.1&#10;&#10;+new methods in abstract class BinaryTree: getMax(),getMin()&#10;+new protected methods in BinaryTree for finding Max, Min nodes by key from needed node" />
-    <option name="LAST_COMMIT_MESSAGE" value="architecture v2.1&#10;&#10;+new methods in abstract class BinaryTree: getMax(),getMin()&#10;+new protected methods in BinaryTree for finding Max, Min nodes by key from needed node" />
+    <MESSAGE value="null safety work" />
+    <option name="LAST_COMMIT_MESSAGE" value="null safety work" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
@@ -130,5 +132,9 @@
         <PinnedItemInfo parentTag="trees.AVLTree" memberName="root" />
       </pinned-members>
     </pin-to-top-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
