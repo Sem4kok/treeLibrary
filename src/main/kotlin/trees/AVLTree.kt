@@ -4,11 +4,11 @@ import BinaryTree
 import treeNodes.AVLTreeNode
 
 
-class AVLTree<K: Comparable<K>, V>: BinaryTree<K, V, AVLTreeNode<K, V>>() {
+class AVLTree<K : Comparable<K>, V> : BinaryTree<K, V, AVLTreeNode<K, V>>() {
     override var root: AVLTreeNode<K, V>? = null
 
     override fun insert(key: K, data: V) {
-        root = insert(root,key,data)
+        root = insert(root, key, data)
     }
 
     override fun remove(key: K) {
@@ -54,14 +54,14 @@ class AVLTree<K: Comparable<K>, V>: BinaryTree<K, V, AVLTreeNode<K, V>>() {
 
         var node = startNode
         if (node == null) {
-            node = AVLTreeNode(key,data)
+            node = AVLTreeNode(key, data)
             return node
         }
 
         if (node.key > key) {
-            node.left = insert(node.left,key,data)
+            node.left = insert(node.left, key, data)
         } else if (node.key < key) {
-            node.right = insert(node.right,key,data)
+            node.right = insert(node.right, key, data)
         }
 
         updateHeight(node)
@@ -94,6 +94,7 @@ class AVLTree<K: Comparable<K>, V>: BinaryTree<K, V, AVLTreeNode<K, V>>() {
 
         return parent
     }
+
     private fun rotate(node: AVLTreeNode<K, V>): AVLTreeNode<K, V> {
 
         if (getHeight(node.left) - getHeight(node.right) > 1) {
@@ -167,9 +168,10 @@ class AVLTree<K: Comparable<K>, V>: BinaryTree<K, V, AVLTreeNode<K, V>>() {
     private fun updateHeight(node: AVLTreeNode<K, V>?) {
         when {
             node == null -> return
-            else -> node.height = 1 + maxOf(getHeight(node.left),getHeight(node.right))
+            else -> node.height = 1 + maxOf(getHeight(node.left), getHeight(node.right))
         }
     }
+
     private fun getHeight(node: AVLTreeNode<K, V>?): Int {
         return node?.height ?: 0
     }
