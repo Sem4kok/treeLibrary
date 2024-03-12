@@ -19,7 +19,7 @@ Same keys are NOT ALLOWED. Adding by a key that was already in the tree will not
     val tree = RBTree<Int, String>()
     tree.insert(1,"Bulldog")
     tree.insert(1,"English Cocker Spaniel")
-    print(tree.search(1))//Exception in thread "main" java.lang.IllegalArgumentException: BST already contains a node with key 1
+    println(tree.search(1)) // Exception in thread "main" IllegalArgumentException: BST already contains a node with key 1
 ```
 First you need to replace the value of the key
 ```
