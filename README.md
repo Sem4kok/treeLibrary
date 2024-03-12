@@ -14,12 +14,12 @@ At initialization time, specify the comparable data type as the first parameter,
     val tree2 = AVLTree<Double, Photo>()
     val tree3 = RBTree<Int, BigInt>()
 ```
-Same keys are NOT ALOWWED. Adding by a key that was already in the tree will not change anything
+Same keys are NOT ALLOWED. Adding by a key that was already in the tree will not change anything
 ```
     val tree = RBTree<Int, String>()
     tree.insert(1,"Bulldog")
     tree.insert(1,"English Cocker Spaniel")
-    println(tree.search(1)) // Exception in thread "main" java.lang.IllegalArgumentException: BST already contains a node with key 1
+    print(tree.search(1))//Exception in thread "main" java.lang.IllegalArgumentException: BST already contains a node with key 1
 ```
 First you need to replace the value of the key
 ```
